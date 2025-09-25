@@ -18,8 +18,16 @@ public class PlayerCharacter : MonoBehaviour
         
     }
 
-    public void takeDamage(int amount)
+    public void TakeDamage(int amount)
     {
         stats.hp -= amount;
+    }
+
+    private void CheckDeath()
+    {
+        if (stats.hp <= 0)
+        {
+            Debug.Log("Game Over!");
+        }
     }
 }
