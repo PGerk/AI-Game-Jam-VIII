@@ -20,6 +20,7 @@ public class Gameflow : MonoBehaviour
     void Start()
     {
         Initialize();
+        EncounterStart();
     }
 
     // Update is called once per frame
@@ -48,12 +49,28 @@ public class Gameflow : MonoBehaviour
         }
 
         encounter.SetActive(false);
-
     }
 
     public void EncounterStart()
     {
+        encounter.SetActive(true);
+        if (!player)
+        {
+            player = GameObject.Find("Player").GetComponent<PlayerCharacter>();
+        }
+        if (!obstacle)
+        {
+            obstacle = GameObject.Find("Obstacle").GetComponent<Target>();
+        }
+        if (!dropdown)
+        {
+            dropdown = GameObject.Find("Action Selection").GetComponent<DropdownScript>();
+        }
+        if (!encounter)
+        {
+            encounter = GameObject.Find("Encounter");
+        }
         dropdown.FullInitialize(player);
-        dropdown.gameObject.SetActive(true);
+        
     }
 }
