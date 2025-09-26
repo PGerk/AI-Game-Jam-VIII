@@ -17,16 +17,19 @@ public class PlayerCharacter : MonoBehaviour
         
     }
 
-    public void TakeDamage(int amount)
+    public bool TakeDamage(int amount)
     {
         stats.hp -= amount;
+        return (CheckDeath());
     }
 
-    private void CheckDeath()
+    private bool CheckDeath()
     {
         if (stats.hp <= 0)
         {
             Debug.Log("Game Over!");
+            return true;
         }
+        return false;
     }
 }

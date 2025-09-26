@@ -13,14 +13,14 @@ public class DropdownScript : MonoBehaviour
 
     private void Start()
     {
-        FullInitialize();
+        //FullInitialize();
     }
 
-    public void FullInitialize()
+    public void FullInitialize(PlayerCharacter _player)
     {
         dropdown = GetComponent<TMP_Dropdown>();
-
-        player = GameObject.Find("Player").GetComponent<PlayerCharacter>();
+        /*
+        player = GameObject.Find("Game Flow Manager").GetComponent<Gameflow>().player;
         if (player)
         {
             Debug.Log("Player found: " + player + player.name);
@@ -28,7 +28,8 @@ public class DropdownScript : MonoBehaviour
         else
         {
             Debug.Log("No player found!");
-        }
+        }*/
+        player = _player;
 
         actionInfo = GameObject.Find("Action Info").GetComponent<TMP_Text>();
         if (actionInfo)
