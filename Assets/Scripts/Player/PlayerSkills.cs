@@ -8,5 +8,15 @@ public class PlayerSkills : MonoBehaviour
     void Start()
     {
         player = gameObject.GetComponent<PlayerCharacter>();
+        LocateHerbert();
+    }
+
+    void LocateHerbert()
+    {
+        GameObject herbert = GameObject.Find("herbert");
+        if (herbert)
+        {
+            Debug.Log("Herbert found!");
+        }
     }
 }
