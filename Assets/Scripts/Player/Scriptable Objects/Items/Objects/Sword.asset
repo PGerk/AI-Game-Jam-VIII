@@ -13,8 +13,12 @@ MonoBehaviour:
   m_Name: Sword
   m_EditorClassIdentifier: 
   itemName: Schwert
-  description: "Dein Schwert. Ein Geschenk deines Vaters zu deinem f\xFCnften Geburtstag."
+  description: "Ein Schwert. In DSA w\xFCrde man W+4 sagen. Wir sind aber nicht in
+    DSA.\nVerursacht 3 Punkte Schaden."
   icon: {fileID: 0}
-  cooldown: 1
-  isReady: 0
-  damage: 5
+  cooldown: 2
+  cooldownTimer: 0
+  isReady: 1
+  isMagic: 0
+  mpCost: 1
+  damage: 3

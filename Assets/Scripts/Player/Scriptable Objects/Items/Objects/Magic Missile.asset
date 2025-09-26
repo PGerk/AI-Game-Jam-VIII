@@ -9,12 +9,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f294c8a8a5286d04c94c34255480c332, type: 3}
+  m_Script: {fileID: 11500000, guid: 917b5d5cb756a8a46b98b42776bd141b, type: 3}
   m_Name: Magic Missile
   m_EditorClassIdentifier: 
-  skillName: Magic Missile
-  description: Ein magischer Angriff, den du mal im besoffenen Kopf von einem ebenfalls
-    besoffenen MAgier gelernt hast.
+  itemName: Zauberstab
+  description: 'Dein Zauberstab. Eine intelligente Beschreibung gibt es hier nicht.
+
+    Verursacht
+    7 Punkte Schaden.'
   icon: {fileID: 0}
-  mp_cost: 3
+  cooldown: 0
+  cooldownTimer: 0
+  isReady: 0
+  isMagic: 1
+  mpCost: 3
   damage: 7

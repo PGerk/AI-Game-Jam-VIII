@@ -3,6 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Items/Damage Item")]
 public class DamageItem : SOItem
 {
+    [Tooltip("Am Gegner verursachter Schaden bei Benutzung.")]
     public int damage;
     public override void Use(PlayerCharacter player, Target target)
     {

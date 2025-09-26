@@ -13,9 +13,14 @@ MonoBehaviour:
   m_Name: Axe
   m_EditorClassIdentifier: 
   itemName: Streitaxt
-  description: "Deine Streitaxt. Du bist dir nicht ganz sicher, warum du dir immer
-    uneinig mit deiner Waffe bist, aber zumindest ist sie ziemlich gro\xDF."
+  description: 'Deine Axt. Du weisst nicht, warum ihr euch beide so oft uneinig sind.
+
+    Verursacht
+    10 Punkte Schaden.'
   icon: {fileID: 0}
   cooldown: 5
-  isReady: 0
+  cooldownTimer: 0
+  isReady: 1
+  isMagic: 0
+  mpCost: 1
   damage: 10

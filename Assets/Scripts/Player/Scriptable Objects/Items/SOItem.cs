@@ -1,21 +1,27 @@
 using UnityEngine;
 
-/// <summary>
-/// Abstrakte Klasse für ein Item, welches der Spieler benutzen kann.
-/// </summary>
+///<summary>
+///Abstrakte Klasse für ein Item, welches der Spieler benutzen kann.
+///</summary>
 public abstract class SOItem : ScriptableObject
 {
-    public string itemName;
-    [TextArea] public string description;
+    [Tooltip("Name des Items.")]
+    public string itemName = "Name hier";
+    [Tooltip("Beschreibung des Items.")]
+    [TextArea] public string description = "Beschreibung hier";
+    [Tooltip("Icon des Items.")]
     public Sprite icon;
 
     //Regular Items
-    public int cooldown;
-    protected int cooldownTimer;
-    public bool isReady;
+    [Tooltip("Cooldown in Runden. Wird bei magischen Items standardmäßig ignoriert.")]
+    public int cooldown = 1;
+    [HideInInspector]public int cooldownTimer;
+    [HideInInspector]public bool isReady = true;
 
     //Magic Items
-    public bool isMagic;
+    [Tooltip("Aktiviert MP-Kosten, deaktiviert Cooldown.")]
+    public bool isMagic = false;
+    [Tooltip("MP-Kosten für einmalige Aktivierung.")]
     public int mpCost = 1;
 
     ///<summary>
@@ -74,5 +80,4 @@ public abstract class SOItem : ScriptableObject
             return false;
         }
     }
-}
 }

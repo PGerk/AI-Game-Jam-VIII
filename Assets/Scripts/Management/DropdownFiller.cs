@@ -78,16 +78,24 @@ public class DropdownScript : MonoBehaviour
         //Text zusammenbauen
         string info = $"Name: {selectedItem.itemName}\n\n";
 
-        //TODO: Item oder SKill unterscheiden
-        if (selectedItem.cooldown > 0)
+        //Unterscheidung Item oder Skill
+        if (selectedItem.isMagic)
         {
-            info += $"Cooldown: {selectedItem.cooldown}\n\n";
+            info += $"Manakosten: {selectedItem.mpCost}\n\n";
         }
         else
         {
-            info += $"Manakosten: ???\n";
+            if (selectedItem.isReady)
+            {
+                info += $"Einsatzbereit!\n";
+                info += $"Cooldown nach Einsatz: {selectedItem.cooldown}\n\n";
+            }
+            else
+            {
+                info += $"Einsatzbereit in: {selectedItem.cooldownTimer}\n\n";
+            }
         }
-
+        
         info += selectedItem.description;
 
         actionInfo.text = info;
