@@ -5,6 +5,12 @@ TagManager:
   serializedVersion: 3
   tags:
   - LevelStart
+  - Combat
+  - Social
+  - Question
+  - Firend
+  - Enemy
+  - Boss
   layers:
   - Default
   - TransparentFX
