@@ -1,14 +1,17 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 [CreateAssetMenu(fileName = "GlobalData", menuName = "Scriptable Objects/GlobalData")]
 public class GlobalData : ScriptableObject
 {
     public Unit[] currentEnemies;
     public Unit player;
-    public Sprite[] enemies;
-    public Sprite[] friendlis;
+    public List<Sprite> enemies = new();
+    public List<Sprite> friendlis = new();
+    public List<GameObject> activatedButtons = new();
 }
 public static class GlobalLoader
 {
@@ -22,9 +25,10 @@ public static class GlobalLoader
             {
                 data = ScriptableObject.CreateInstance<GlobalData>();
                 AssetDatabase.CreateAsset(data, dataPath);
-                data.enemies = Resources.LoadAll<Sprite>("Assets/Pictures/Enemies");
-                data.friendlis = Resources.LoadAll<Sprite>("Assets/Pictures/Friendly");
+                data.enemies = Resources.LoadAll<Sprite>("Assets/Pictures/Enemies").ToList();
+                data.friendlis = Resources.LoadAll<Sprite>("Assets/Pictures/Friendly").ToList();
                 data.player = new Unit(24, 2, "Player");
+                data.player.gamiobj = GameObject.FindWithTag("Player");
                 AssetDatabase.SaveAssets();
             }
         }

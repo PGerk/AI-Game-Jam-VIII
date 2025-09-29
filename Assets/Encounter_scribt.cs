@@ -1,74 +1,77 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using System;
 
 public class Encounter_scribt : MonoBehaviour
 {
     private Button thisButton;
-    private bool activated;
     public Button buttona;
     public Button buttonb;
     public Button neighbor;
     public Button neighbor2;
-    public GameObject player;
-    /*public Button neighbor3;
-    public Button neighbor4;*/
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private GlobalData data;
+
     void Start()
     {
-        //thisButton = this.gameObject;
-        player = GameObject.FindWithTag("Player");
-        activated = false;
+        GlobalLoader.Instantiate(ref data);
         thisButton = gameObject.GetComponent<Button>();
-        //buttonb = gameObject.GetComponent<GameObject>();
+        if (data.activatedButtons.Count > 0 && data.activatedButtons.Contains(thisButton.gameObject))
+        {
+            styleButtons();
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
-        /*if (activated && thisButton)
-        {
-            thisButton.transition.none;
-        }*/
+
     }
     public void activate()
     {
-        /*buttona.enabled(true);
-        if(buttonb != null)
+        if (!data.activatedButtons.Contains(thisButton.gameObject))
         {
-            buttonb.SetActive(true);
-        }*/
-        if (!activated)
+            data.activatedButtons.Add(thisButton.gameObject);
+
+            styleButtons();
+            //switchScene();
+        }
+
+    }
+    public void switchScene()
+    {
+        SceneManager.LoadScene(0);
+
+    }
+    private void styleButtons()
+    {
+        if (data.player != null)
         {
-            player.transform.position = thisButton.transform.position;
-            buttona.gameObject.SetActive(true);
-            if (buttonb != null)
+            Debug.Log( " start ");
+
+            data.player.PlayerPositionButton = thisButton.gameObject;
+            data.player.gamiobj.transform.position = data.player.PlayerPositionButton.transform.position;
+            Debug.Log(" end ");
+        }
+
+        buttona.gameObject.SetActive(true);
+        if (buttonb != null)
+        {
+            buttonb.gameObject.SetActive(true);
+        }
+
+        if (neighbor)
+            if (neighbor != null)
             {
-                buttonb.gameObject.SetActive(true);
+                neighbor.interactable = false;
             }
-            //neighbor.interactable = false;
-            if (neighbor)
-                if (neighbor != null)
-                {
-                    neighbor.interactable = false;
-                }
-            if (neighbor2)
-                if (neighbor2 != null)
-                {
-                    neighbor2.interactable = false;
-                }
-            //thisButton.highlightedSprite = null;
-            var spriteState = thisButton.spriteState;
-            spriteState.highlightedSprite = null;
-            thisButton.spriteState = spriteState;
-            activated = true;
-        }
-        /*if (neighbor3 != null)
-        {
-            neighbor3.interactable = false;
-        }
-        if (neighbor4 != null)
-        {
-            neighbor4.interactable = false;
-        }*/
+        if (neighbor2)
+            if (neighbor2 != null)
+            {
+                neighbor2.interactable = false;
+            }
+
+        var spriteState = thisButton.spriteState;
+        spriteState.highlightedSprite = null;
+        thisButton.spriteState = spriteState;
     }
 }

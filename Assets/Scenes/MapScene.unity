@@ -138,7 +138,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &250516064
 RectTransform:
   m_ObjectHideFlags: 0
@@ -268,7 +268,6 @@ MonoBehaviour:
   buttonb: {fileID: 0}
   neighbor: {fileID: 1686499970}
   neighbor2: {fileID: 0}
-  player: {fileID: 0}
 --- !u!1 &256865235
 GameObject:
   m_ObjectHideFlags: 0
@@ -363,7 +362,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &284669246
 RectTransform:
   m_ObjectHideFlags: 0
@@ -493,7 +492,6 @@ MonoBehaviour:
   buttonb: {fileID: 0}
   neighbor: {fileID: 1724711129}
   neighbor2: {fileID: 0}
-  player: {fileID: 0}
 --- !u!1 &333587061
 GameObject:
   m_ObjectHideFlags: 0
@@ -513,7 +511,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &333587062
 RectTransform:
   m_ObjectHideFlags: 0
@@ -643,7 +641,6 @@ MonoBehaviour:
   buttonb: {fileID: 1351711782}
   neighbor: {fileID: 2140562052}
   neighbor2: {fileID: 2051778352}
-  player: {fileID: 0}
 --- !u!1 &432942166
 GameObject:
   m_ObjectHideFlags: 0
@@ -664,7 +661,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &432942167
 RectTransform:
   m_ObjectHideFlags: 0
@@ -794,7 +791,6 @@ MonoBehaviour:
   buttonb: {fileID: 0}
   neighbor: {fileID: 1673697869}
   neighbor2: {fileID: 0}
-  player: {fileID: 0}
 --- !u!114 &432942172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -827,7 +823,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &643622991
 RectTransform:
   m_ObjectHideFlags: 0
@@ -957,7 +953,6 @@ MonoBehaviour:
   buttonb: {fileID: 1673697869}
   neighbor: {fileID: 1285579403}
   neighbor2: {fileID: 1320260949}
-  player: {fileID: 0}
 --- !u!1 &658071632
 GameObject:
   m_ObjectHideFlags: 0
@@ -1052,7 +1047,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &663917300
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1182,7 +1177,6 @@ MonoBehaviour:
   buttonb: {fileID: 333587063}
   neighbor: {fileID: 1285579403}
   neighbor2: {fileID: 0}
-  player: {fileID: 0}
 --- !u!1 &785335789
 GameObject:
   m_ObjectHideFlags: 0
@@ -1485,7 +1479,6 @@ MonoBehaviour:
   buttonb: {fileID: 1285579403}
   neighbor: {fileID: 1195720835}
   neighbor2: {fileID: 0}
-  player: {fileID: 0}
 --- !u!1 &1195720833
 GameObject:
   m_ObjectHideFlags: 0
@@ -1635,7 +1628,6 @@ MonoBehaviour:
   buttonb: {fileID: 1320260949}
   neighbor: {fileID: 1122310260}
   neighbor2: {fileID: 0}
-  player: {fileID: 0}
 --- !u!1 &1218705612
 GameObject:
   m_ObjectHideFlags: 0
@@ -1734,7 +1726,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1285579402
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1864,7 +1856,6 @@ MonoBehaviour:
   buttonb: {fileID: 2051778352}
   neighbor: {fileID: 663917301}
   neighbor2: {fileID: 643622992}
-  player: {fileID: 0}
 --- !u!1 &1311018587
 GameObject:
   m_ObjectHideFlags: 0
@@ -2007,7 +1998,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1320260948
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2137,7 +2128,6 @@ MonoBehaviour:
   buttonb: {fileID: 432942168}
   neighbor: {fileID: 643622992}
   neighbor2: {fileID: 0}
-  player: {fileID: 0}
 --- !u!1 &1351711780
 GameObject:
   m_ObjectHideFlags: 0
@@ -2157,7 +2147,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1351711781
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2287,7 +2277,6 @@ MonoBehaviour:
   buttonb: {fileID: 1724711129}
   neighbor: {fileID: 1825074202}
   neighbor2: {fileID: 1686499970}
-  player: {fileID: 0}
 --- !u!1 &1434505119
 GameObject:
   m_ObjectHideFlags: 0
@@ -2382,7 +2371,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1673697868
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2512,7 +2501,6 @@ MonoBehaviour:
   buttonb: {fileID: 250516065}
   neighbor: {fileID: 2051778352}
   neighbor2: {fileID: 0}
-  player: {fileID: 0}
 --- !u!1 &1686499968
 GameObject:
   m_ObjectHideFlags: 0
@@ -2532,7 +2520,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1686499969
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2662,7 +2650,6 @@ MonoBehaviour:
   buttonb: {fileID: 284669247}
   neighbor: {fileID: 1351711782}
   neighbor2: {fileID: 250516065}
-  player: {fileID: 0}
 --- !u!1 &1724711127
 GameObject:
   m_ObjectHideFlags: 0
@@ -2682,7 +2669,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1724711128
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2812,7 +2799,6 @@ MonoBehaviour:
   buttonb: {fileID: 0}
   neighbor: {fileID: 1849362978}
   neighbor2: {fileID: 284669247}
-  player: {fileID: 0}
 --- !u!1 &1776564604
 GameObject:
   m_ObjectHideFlags: 0
@@ -2831,7 +2817,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1776564605
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2952,7 +2938,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1825074201
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3082,7 +3068,6 @@ MonoBehaviour:
   buttonb: {fileID: 0}
   neighbor: {fileID: 1351711782}
   neighbor2: {fileID: 0}
-  player: {fileID: 0}
 --- !u!1 &1849362976
 GameObject:
   m_ObjectHideFlags: 0
@@ -3102,7 +3087,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1849362977
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3232,7 +3217,6 @@ MonoBehaviour:
   buttonb: {fileID: 0}
   neighbor: {fileID: 1724711129}
   neighbor2: {fileID: 0}
-  player: {fileID: 0}
 --- !u!1 &2051778350
 GameObject:
   m_ObjectHideFlags: 0
@@ -3252,7 +3236,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2051778351
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3382,7 +3366,6 @@ MonoBehaviour:
   buttonb: {fileID: 1686499970}
   neighbor: {fileID: 333587063}
   neighbor2: {fileID: 1673697869}
-  player: {fileID: 0}
 --- !u!1 &2140562050
 GameObject:
   m_ObjectHideFlags: 0
@@ -3402,7 +3385,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2140562051
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3532,7 +3515,6 @@ MonoBehaviour:
   buttonb: {fileID: 0}
   neighbor: {fileID: 333587063}
   neighbor2: {fileID: 0}
-  player: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

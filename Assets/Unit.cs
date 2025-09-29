@@ -10,11 +10,13 @@ public class Unit
     private int maxHp;
     private int attackPower;
     private string unitName;
-    private GameObject gamiobj;
+    public GameObject gamiobj;
+    private GameObject playerPositionButton;
 
     public int Hp { get { return currentHp; } }
     public string UnitName { get { return unitName; } }
     public bool IsDead { get { return currentHp <= 0; } }
+    public GameObject PlayerPositionButton { get { return playerPositionButton; } set { playerPositionButton = value; } }
 
     public Unit(int maxHp, int attackPower, string unitName)
     {
