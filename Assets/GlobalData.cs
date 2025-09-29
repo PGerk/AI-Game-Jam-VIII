@@ -25,8 +25,8 @@ public static class GlobalLoader
             {
                 data = ScriptableObject.CreateInstance<GlobalData>();
                 AssetDatabase.CreateAsset(data, dataPath);
-                data.enemies = Resources.LoadAll<Sprite>("Assets/Pictures/Enemies").ToList();
-                data.friendlis = Resources.LoadAll<Sprite>("Assets/Pictures/Friendly").ToList();
+                data.enemies = Resources.LoadAll<Sprite>("Enemies").ToList();
+                data.friendlis = Resources.LoadAll<Sprite>("Friendly").ToList();
                 data.player = new Unit(24, 2, "Player");
                 data.player.gamiobj = GameObject.FindWithTag("Player");
                 AssetDatabase.SaveAssets();
@@ -36,7 +36,11 @@ public static class GlobalLoader
     public static GlobalData GetGlobalData()
     {
         var data = AssetDatabase.LoadAssetAtPath<GlobalData>(dataPath);
-
         return data;
+    }
+    public static void Reset(ref GlobalData dataToDelete)
+    {
+        AssetDatabase.DeleteAsset(dataPath);
+        Instantiate(ref dataToDelete);
     }
 }

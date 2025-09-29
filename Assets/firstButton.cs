@@ -6,6 +6,8 @@ public class firstButton : MonoBehaviour
     public Button button;
     public GameObject text;
     public Button thisButton;
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

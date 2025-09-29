@@ -33,25 +33,19 @@ public class Encounter_scribt : MonoBehaviour
             data.activatedButtons.Add(thisButton.gameObject);
 
             styleButtons();
-            //switchScene();
+            switchScene();
         }
 
     }
     public void switchScene()
     {
+         string sceneType = data.player.PlayerPositionButton.tag;
         SceneManager.LoadScene(0);
-
     }
     private void styleButtons()
     {
-        if (data.player != null)
-        {
-            Debug.Log( " start ");
-
-            data.player.PlayerPositionButton = thisButton.gameObject;
-            data.player.gamiobj.transform.position = data.player.PlayerPositionButton.transform.position;
-            Debug.Log(" end ");
-        }
+        data.player.PlayerPositionButton = thisButton.gameObject;
+        data.player.gamiobj.transform.position = data.player.PlayerPositionButton.transform.position;
 
         buttona.gameObject.SetActive(true);
         if (buttonb != null)
