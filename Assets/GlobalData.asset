@@ -12,7 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b445bbdfdbecbf4bbaea77f08448668, type: 3}
   m_Name: GlobalData
   m_EditorClassIdentifier: 
-  enemies: []
+  debug: 1
+  enemies:
+  - {fileID: 21300000, guid: a6393f1ab0ed4034399f9f7a1d810b24, type: 3}
+  - {fileID: 21300000, guid: 4ac856a97405f5d45ba26075fb3fe2b1, type: 3}
+  - {fileID: 21300000, guid: f71b69e224bf7ec409868222396bdb93, type: 3}
   friendlis:
-  - {fileID: 0}
+  - {fileID: 21300000, guid: c87dd2ccea016e743b48d479aeb271f4, type: 3}
+  - {fileID: 21300000, guid: 816c7c91d79d265489be42d6e5828f2a, type: 3}
+  - {fileID: 21300000, guid: 220a915850cd60741a4e703c965519d2, type: 3}
+  potraits:
+  - {fileID: 21300000, guid: 0052d22003c084d4f8e8c728267d69b1, type: 3}
+  - {fileID: 21300000, guid: 24d9e314d0da54444855b9737e8a40f3, type: 3}
+  - {fileID: 21300000, guid: f14d51bbc1f59ee4aafef39c31a23b57, type: 3}
   activatedButtons: []

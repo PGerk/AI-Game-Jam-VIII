@@ -31,11 +31,9 @@ public class Encounter_scribt : MonoBehaviour
         if (!data.activatedButtons.Contains(thisButton.gameObject))
         {
             data.activatedButtons.Add(thisButton.gameObject);
-
             styleButtons();
             switchScene();
         }
-
     }
     public void switchScene()
     {
@@ -52,7 +50,6 @@ public class Encounter_scribt : MonoBehaviour
         {
             buttonb.gameObject.SetActive(true);
         }
-
         if (neighbor)
             if (neighbor != null)
             {
