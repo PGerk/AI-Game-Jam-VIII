@@ -5,7 +5,7 @@ using System;
 
 public class Encounter_scribt : MonoBehaviour
 {
-    private Button thisButton;
+    public GameObject thisButton;
     public Button buttona;
     public Button buttonb;
     public Button neighbor;
@@ -14,38 +14,42 @@ public class Encounter_scribt : MonoBehaviour
 
     void Start()
     {
-        GlobalLoader.Instantiate(ref data);
-        thisButton = gameObject.GetComponent<Button>();
-        if (data.activatedButtons.Count > 0 && data.activatedButtons.Contains(thisButton.gameObject))
+        if(data ==null)GlobalLoader.Instantiate();
+        data = GlobalLoader.GetGlobalData();
+        if(data.player.gamiobj == null)
+        {
+           data.player.gamiobj = GameObject.FindWithTag("Player");
+            Debug.Log($"Gameobject found = {data.player.gamiobj != null}");
+        }
+        //thisButton = gameObject.GetComponent<Button>();
+        if (data.activatedButtons.Count > 0 && data.activatedButtons.Contains(thisButton.name))
         {
             styleButtons();
         }
     }
-
-    void Update()
-    {
-
-    }
     public void activate()
     {
-        if (!data.activatedButtons.Contains(thisButton.gameObject))
+        if (!data.activatedButtons.Contains(thisButton.name))
         {
-            data.activatedButtons.Add(thisButton.gameObject);
+            data.activatedButtons.Add(thisButton.name);
             styleButtons();
             switchScene();
         }
     }
     public void switchScene()
     {
-         string sceneType = data.player.PlayerPositionButton.tag;
         SceneManager.LoadScene(0);
     }
     private void styleButtons()
     {
-        data.player.PlayerPositionButton = thisButton.gameObject;
-        data.player.gamiobj.transform.position = data.player.PlayerPositionButton.transform.position;
-
-        buttona.gameObject.SetActive(true);
+        data = GlobalLoader.GetGlobalData();
+        data.player.playerPosition = thisButton.transform.position;
+        data.sceneType = thisButton.tag;
+        data.player.gamiobj.transform.position = data.player.playerPosition;
+        if (buttona)
+        {
+            buttona.gameObject.SetActive(true);
+        }
         if (buttonb != null)
         {
             buttonb.gameObject.SetActive(true);
@@ -61,8 +65,8 @@ public class Encounter_scribt : MonoBehaviour
                 neighbor2.interactable = false;
             }
 
-        var spriteState = thisButton.spriteState;
+        var spriteState = thisButton.GetComponent<Button>().spriteState;
         spriteState.highlightedSprite = null;
-        thisButton.spriteState = spriteState;
+        thisButton.GetComponent<Button>().spriteState = spriteState;
     }
 }

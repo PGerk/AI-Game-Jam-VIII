@@ -13,6 +13,7 @@ public class ItemHandler : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
     public Button continueButton;
     public GlobalData data;
     private GameObject clickedObject;
+    public GameObject inventarUI;
     void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
     {
         clickedObject = eventData.pointerPress;
@@ -49,35 +50,14 @@ public class ItemHandler : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
             gameObject.GetComponent<TextMeshProUGUI>().color = originalColor;
         }
     }
-
-    // Update is called once per frame
     public void selectItem()
     {
+        var inventarItems = inventarUI.GetComponentsInChildren<TextMeshProUGUI>();
+        sceneState.deselectItems(inventarItems, ref data);
         item.selected = true;
-        /* 
-        var slotNumber = int.Parse(clickedObject.name.Split("Item")[1]);
-        data.player.Inventar.Select((item, index) => new { item, index }).ToList()
-         .ForEach(item =>
-         {
-             var currentItemNumber = item.index + 1;
-             if (currentItemNumber == slotNumber)
-             {
-                 Debug.Log(currentItemNumber + "=" + slotNumber+ " " + item.item.Name);
-                 ourText.color = Color.yellow;
-                 item.item.selected = true;
-             }
-             else
-             {
-                 item.item.selected = false;
-                 ourText.color = originalColor;
-             }
-         }
-     );*/
         if (item.selected)
         {
             continueButton.interactable = true;
         }
     }
-
-
 }

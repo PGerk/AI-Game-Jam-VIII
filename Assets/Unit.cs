@@ -4,23 +4,29 @@ using System;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
+[System.Serializable]
+
 public class Unit
 {
-    private List<Item> inventar = new List<Item>();
-    private List<Item> blessings = new List<Item>();
-    private int currentHp;
-    private int maxHp;
-    private int attackPower;
-    private string unitName;
+    public List<Item> inventar = new List<Item>();
+    public List<Item> blessings = new List<Item>();
+    public int currentHp;
+    public int maxHp;
+    public int attackPower;
+    public string unitName;
     public GameObject gamiobj;
-    private GameObject playerPositionButton;
+    public Vector3 playerPosition;
+    public TMPro.TextMeshProUGUI hpText;
+    public Slider hpLeiste;
 
     public int Hp { get { return currentHp; } }
     public string UnitName { get { return unitName; } }
     public bool IsDead { get { return currentHp <= 0; } }
-    public GameObject PlayerPositionButton { get { return playerPositionButton; } set { playerPositionButton = value; } }
-    public List<Item> Inventar { get { return inventar; } set { } }
+    public Vector3 PlayerPosition { get { return playerPosition; } set { playerPosition = value; } }
+    public List<Item> Inventar { get { return inventar; } set { inventar = value; } }
     public List<Item> Blessings { get { return blessings; } }
+    public TMPro.TextMeshProUGUI HpText { get { return hpText; } set { hpText = value; } }
+    public Slider HpLeiste { get { return hpLeiste; } set { hpLeiste = value; } }
 
     public Unit(int maxHp, int attackPower, string unitName)
     {
@@ -28,6 +34,11 @@ public class Unit
         this.currentHp = maxHp;
         this.attackPower = attackPower;
         this.unitName = unitName;
+    }
+    public void setHP()
+    {
+        hpText.text = $"{currentHp}/{maxHp}";
+        hpLeiste.value = currentHp / maxHp;
     }
     public int GetAttackPower()
     {
@@ -56,18 +67,18 @@ public class Unit
         }
         return defence;
     }
-    public void Attack(Unit unitToAttack, int damage)
+    public void Attack(Unit unitToAttack)
     {
-        int finDamage = (int)(damage + GetAttackPower());
+        int finDamage = (int)(attackPower + GetAttackPower());
         unitToAttack.TakeDamage(finDamage);
         Console.WriteLine(unitName + " attacks " + unitToAttack.unitName + " and deals " + finDamage + " damage!");
     }
 
     public void TakeDamage(int damage)
     {
-
         currentHp -= damage;
-
+        hpText.text = $"{currentHp}/{maxHp}";
+        hpLeiste.value = currentHp / maxHp;
         if (IsDead)
         {
             Console.WriteLine(unitName + " has been defeated!");
@@ -78,10 +89,13 @@ public class Unit
         }
     }
 
-    public void Heal(Item item)
+    public void Heal()
     {
-        if (!item.Consumable) return;
-        currentHp = item.HealPower + currentHp > maxHp ? maxHp : currentHp + item.HealPower;
+
+        //if (!item.Consumable) return;
+        currentHp = maxHp;
+        hpText.text = $"{currentHp}/{maxHp}";
+        hpLeiste.value = currentHp / maxHp;
         Console.WriteLine(UnitName + " heals ");
     }
     public void setSprite(Sprite sprite)
@@ -106,7 +120,11 @@ public class Unit
     }
     public static (Sprite sprite, int index) selectRandomSprite(List<Sprite> spriteList, int givenIndex = -1)
     {
-        int index = givenIndex < 0 ? Random.Range(0, spriteList.Count) : givenIndex;
+        int spriteCount = givenIndex == 17 ?
+            spriteList.Count - 1 :
+            spriteList.Count;
+
+        int index = givenIndex < 0 ? Random.Range(0, spriteCount) : givenIndex;
         if (index == -1) Debug.Log("Index ist -1");
         Sprite sprite = spriteList[index];
         return (sprite, index);
@@ -116,5 +134,6 @@ public class Unit
         ["Alexa"] = new Unit(10, 1, "Alexa"),
         ["KnifeCrab"] = new Unit(8, 2, "KnifeCrab"),
         ["SquidArcher"] = new Unit(6, 4, "SquidArcher"),
+        ["ZBoss"] = new Unit(16, 3, "ZBoss"),
     };
 }

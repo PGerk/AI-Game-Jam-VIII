@@ -264,6 +264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43c5fabe766ed65439d579b51a880eda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisButton: {fileID: 250516063}
   buttona: {fileID: 284669247}
   buttonb: {fileID: 0}
   neighbor: {fileID: 1686499970}
@@ -280,7 +281,7 @@ GameObject:
   - component: {fileID: 256865238}
   - component: {fileID: 256865237}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Startposition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -488,6 +489,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43c5fabe766ed65439d579b51a880eda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisButton: {fileID: 284669245}
   buttona: {fileID: 1776564606}
   buttonb: {fileID: 0}
   neighbor: {fileID: 1724711129}
@@ -637,6 +639,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43c5fabe766ed65439d579b51a880eda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisButton: {fileID: 333587061}
   buttona: {fileID: 1825074202}
   buttonb: {fileID: 1351711782}
   neighbor: {fileID: 2140562052}
@@ -787,6 +790,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43c5fabe766ed65439d579b51a880eda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisButton: {fileID: 432942166}
   buttona: {fileID: 250516065}
   buttonb: {fileID: 0}
   neighbor: {fileID: 1673697869}
@@ -949,6 +953,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43c5fabe766ed65439d579b51a880eda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisButton: {fileID: 643622990}
   buttona: {fileID: 2051778352}
   buttonb: {fileID: 1673697869}
   neighbor: {fileID: 1285579403}
@@ -1173,6 +1178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43c5fabe766ed65439d579b51a880eda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisButton: {fileID: 663917299}
   buttona: {fileID: 2140562052}
   buttonb: {fileID: 333587063}
   neighbor: {fileID: 1285579403}
@@ -1344,7 +1350,7 @@ GameObject:
   - component: {fileID: 1122310260}
   - component: {fileID: 1122310263}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Button (0)
   m_TagString: Combat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1475,6 +1481,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43c5fabe766ed65439d579b51a880eda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisButton: {fileID: 1122310258}
   buttona: {fileID: 663917301}
   buttonb: {fileID: 1285579403}
   neighbor: {fileID: 1195720835}
@@ -1624,6 +1631,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43c5fabe766ed65439d579b51a880eda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisButton: {fileID: 1195720833}
   buttona: {fileID: 643622992}
   buttonb: {fileID: 1320260949}
   neighbor: {fileID: 1122310260}
@@ -1852,6 +1860,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43c5fabe766ed65439d579b51a880eda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisButton: {fileID: 1285579401}
   buttona: {fileID: 333587063}
   buttonb: {fileID: 2051778352}
   neighbor: {fileID: 663917301}
@@ -2124,6 +2133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43c5fabe766ed65439d579b51a880eda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisButton: {fileID: 1320260947}
   buttona: {fileID: 1673697869}
   buttonb: {fileID: 432942168}
   neighbor: {fileID: 643622992}
@@ -2273,6 +2283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43c5fabe766ed65439d579b51a880eda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisButton: {fileID: 1351711780}
   buttona: {fileID: 1849362978}
   buttonb: {fileID: 1724711129}
   neighbor: {fileID: 1825074202}
@@ -2497,6 +2508,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43c5fabe766ed65439d579b51a880eda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisButton: {fileID: 1673697867}
   buttona: {fileID: 1686499970}
   buttonb: {fileID: 250516065}
   neighbor: {fileID: 2051778352}
@@ -2646,6 +2658,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43c5fabe766ed65439d579b51a880eda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisButton: {fileID: 1686499968}
   buttona: {fileID: 1724711129}
   buttonb: {fileID: 284669247}
   neighbor: {fileID: 1351711782}
@@ -2795,6 +2808,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43c5fabe766ed65439d579b51a880eda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisButton: {fileID: 1724711127}
   buttona: {fileID: 1776564606}
   buttonb: {fileID: 0}
   neighbor: {fileID: 1849362978}
@@ -2811,6 +2825,7 @@ GameObject:
   - component: {fileID: 1776564608}
   - component: {fileID: 1776564607}
   - component: {fileID: 1776564606}
+  - component: {fileID: 1776564609}
   m_Layer: 5
   m_Name: Button (6)
   m_TagString: Untagged
@@ -2880,7 +2895,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1776564607}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1776564609}
+        m_TargetAssemblyTypeName: Encounter_scribt, Assembly-CSharp
+        m_MethodName: activate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1776564607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2919,6 +2946,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1776564604}
   m_CullTransparentMesh: 1
+--- !u!114 &1776564609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1776564604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43c5fabe766ed65439d579b51a880eda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisButton: {fileID: 1776564604}
+  buttona: {fileID: 0}
+  buttonb: {fileID: 0}
+  neighbor: {fileID: 0}
+  neighbor2: {fileID: 0}
 --- !u!1 &1825074200
 GameObject:
   m_ObjectHideFlags: 0
@@ -3064,6 +3108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43c5fabe766ed65439d579b51a880eda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisButton: {fileID: 1825074200}
   buttona: {fileID: 1849362978}
   buttonb: {fileID: 0}
   neighbor: {fileID: 1351711782}
@@ -3213,6 +3258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43c5fabe766ed65439d579b51a880eda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisButton: {fileID: 1849362976}
   buttona: {fileID: 1776564606}
   buttonb: {fileID: 0}
   neighbor: {fileID: 1724711129}
@@ -3362,6 +3408,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43c5fabe766ed65439d579b51a880eda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisButton: {fileID: 2051778350}
   buttona: {fileID: 1351711782}
   buttonb: {fileID: 1686499970}
   neighbor: {fileID: 333587063}
@@ -3511,6 +3558,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43c5fabe766ed65439d579b51a880eda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisButton: {fileID: 2140562050}
   buttona: {fileID: 1825074202}
   buttonb: {fileID: 0}
   neighbor: {fileID: 333587063}

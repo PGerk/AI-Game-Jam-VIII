@@ -7,12 +7,12 @@ using TMPro;
 using UnityEditor;
 using System.Linq;
 using System.Text.RegularExpressions;
+using System;
 
 public class sceneState : MonoBehaviour
 {
     private bool isClosed = true;
     private GlobalData data;
-    private string sceneType = "menu";
     public GameObject enemies;
     public Image gegli1;
     public Image gegli2;
@@ -26,38 +26,48 @@ public class sceneState : MonoBehaviour
     public Button inventoryButton;
     public GameObject inventarUI;
     private TextMeshProUGUI text;
+    public GameObject background;
     private Vector3 originalButtonposition;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
-        GlobalLoader.Instantiate(ref data);
-        //sceneType = data.player.PlayerPositionButton.tag;
-        sceneType = "Social"; //Später löschen
+        data = GlobalLoader.GetGlobalData();
+        Debug.Log(data.player != null);
+        Debug.Log(data.player.playerPosition);
+        Debug.Log(data.sceneType);
         text = textUI.GetComponentInChildren<TextMeshProUGUI>();
         initiateScene();
         continueButton.onClick.AddListener(ClickContinue);
         inventoryButton.onClick.AddListener(showInventory);
     }
-
+    private void Update()
+    {
+        if (data.firstFight)
+        {
+            data.player.setHP();
+            data.firstFight = false;
+        }
+    }
     private void initiateScene()
     {
-        switch (sceneType)
+        switch (data.sceneType)
         {
             case ("Combat"):
                 enemies.SetActive(true);
-                int enemyNumber = Random.Range(1, 2);
+                int enemyNumber = UnityEngine.Random.Range(1, 2);
                 gegli1.gameObject.SetActive(true);
-                gegli1.sprite = Unit.selectRandomSprite(data.enemies).sprite;
+                gegli1.sprite = Unit.selectRandomSprite(data.enemies, 17).sprite;
                 data.currentEnemies.Append(Unit.Enemy[gegli1.sprite.name]);
+                data.currentEnemies[0].setHP();
                 if (enemyNumber == 2)
                 {
                     gegli2.gameObject.SetActive(true);
                     gegli2.sprite = Unit.selectRandomSprite(data.enemies).sprite;
                     data.currentEnemies.Append(Unit.Enemy[gegli2.sprite.name]);
+                    data.currentEnemies[1].setHP();
                 }
-
+                startBattle();
                 //battle UI
                 break;
             case ("Social"):
@@ -74,8 +84,6 @@ public class sceneState : MonoBehaviour
                 potrait.sprite = Unit.selectRandomSprite(data.potraits, spriteIndex).sprite;
 
                 npc = NpcTypes.friendly[dudi.sprite.name];
-                //dudi.sprite = friend;
-                StartCoroutine(waiter());
                 text.gameObject.SetActive(true);
                 textUI.SetActive(true);
                 potrait.gameObject.SetActive(true);
@@ -94,8 +102,10 @@ public class sceneState : MonoBehaviour
             case ("Boss"):
                 textUI.SetActive(true);
                 gegli1.gameObject.SetActive(true);
+                gegli1.sprite = Unit.selectRandomSprite(data.enemies,3).sprite;
                 text.color = Color.black;
                 text.text = "Du denkst, du kannst mich aufhalten? Weißt du was? Ich auch. Mit dieser TNT-Stange hier! Und das Kloster nehme ich mit! Klick Clack Klick kli klack!";
+                continueButton.gameObject.SetActive(true);
 
                 //battle UI
                 break;
@@ -104,24 +114,21 @@ public class sceneState : MonoBehaviour
                 break;
         }
     }
-    IEnumerator waiter()
-    {
-        //Wait for 4 seconds
-        yield return new WaitForSeconds(2);
-    }
 
     private void FixedUpdate()
     {
-        if(npc.blessingGiven) text.color = Color.black;
-
-        //SceneManager.LoadScene(2);
+        if(data.sceneType == "Social" && npc.blessingGiven) text.color = Color.black;
+        if (data.sceneType == "Combat" && data.currentEnemies.Length == 0) continueButton.gameObject.SetActive(true);
+        if (data.sceneType == "Boss" && data.currentEnemies.Length == 0) {
+            textUI.SetActive(true);
+            textUI.GetComponent<TextMeshProUGUI>().text = "Du hast gewonnen. [Bitte Spiel manuel verlassen]";
+            }
     }
     public void ClickContinue()
     {
-        switch (sceneType)
+        switch (data.sceneType)
         {
             case ("Combat"):
-
                 SceneManager.LoadScene(2);
                 break;
             case ("Social"):
@@ -136,15 +143,19 @@ public class sceneState : MonoBehaviour
                 else if (!npc.blessingGiven)
                 {
                    text.text = npc.blessingText;
-                    npc.GiveBlessing(data.player);
+                   npc.GiveBlessing(data.player);
                 }
-                //else SceneManager.LoadScene(2);
+                else SceneManager.LoadScene(2);
                 break;
             case ("Question"):
                 continueButton.GetComponentInChildren<TextMeshProUGUI>().text = "Continue";
-                text.text = "Du erhälst guten Heiltrank.";
-                StartCoroutine(waiter());
+                text.text = "Du wirst voll geheilt.";
+                data.player.Heal();
                 SceneManager.LoadScene(2);
+                break;
+            case ("Boss"):
+                textUI.SetActive(false);
+                startBattle();
                 break;
             default:
                 break;
@@ -152,46 +163,80 @@ public class sceneState : MonoBehaviour
     }
     public void showInventory()
     {
+        data = GlobalLoader.GetGlobalData();
+        var inventarItems = inventarUI.GetComponentsInChildren<TextMeshProUGUI>();
         if (!isClosed)
         {
             inventoryButton.gameObject.transform.position = originalButtonposition;
             inventoryButton.GetComponentInChildren<TextMeshProUGUI>().text = "Inventory";
             inventarUI.SetActive(false);
             isClosed = true;
+            deselectItems(inventarItems, ref data);
             return;
         }
         isClosed = false;
-        data = GlobalLoader.GetGlobalData();
         char emSpace = '\u2003';
         inventarUI.SetActive(true);
         originalButtonposition = inventoryButton.gameObject.transform.position;
         inventoryButton.gameObject.transform.position = new Vector3(450, 370,0);
         inventoryButton.GetComponentInChildren<TextMeshProUGUI>().text = "Close";
-        var inventarItems = inventarUI.GetComponentsInChildren<TextMeshProUGUI>();
-        data.player.Inventar.Select((item, index) => new { item, index }).ToList()
-            .ForEach(item =>
+        int currentPosition = 0;
+        try
+        {
+            foreach (var slot in inventarItems)
             {
-                var itemTMP = inventarItems[item.index];
-                itemTMP.text = Regex.Replace(itemTMP.text, @">(.*?)<", $">{item.item.Name.PadRight(10, emSpace)}<");
-            } 
-        );
-        var itemsInInventory = data.player.Inventar.Count;
-        foreach (var slot in inventarItems) {
-            var slotNumber = int.Parse(slot.name.Split("Item")[1]);
-            var handler = slot.GetComponent<ItemHandler>();
-            var itemExists = data.player.Inventar[slotNumber - 1] != null;
-            handler.item = itemExists ?
-                data.player.Inventar[slotNumber - 1] :
-                null;
-            var itemName = itemExists ?
-               handler.item?.Name:
-                " ";
-            slot.text = Regex.Replace(slot.text, @">(.*?)<", $">{itemName.PadRight(10, emSpace)}<");
-            handler.data = data;
-        };
+                var slotNumber = int.Parse(slot.name.Split("Item")[1]);
+                currentPosition = slotNumber;
+                var handler = slot.GetComponent<ItemHandler>();
+                var itemExists = data.player.Inventar.Count > slotNumber - 1;
+                handler.item = itemExists ?
+                    data.player.Inventar[slotNumber - 1] :
+                    null;
+                var itemName = itemExists ?
+                   handler.item?.Name :
+                    " ";
+                slot.text = Regex.Replace(slot.text, @">(.*?)<", $">{itemName.PadRight(10, emSpace)}<");
+                handler.data = data;
+            };
+        }
+        catch (Exception e) 
+        {
+            Debug.LogError(e);
+            Debug.Log(currentPosition.ToString());
+        }
     }
     public void stealItem()
     {
         data.player.Inventar.RemoveAll(item => item.selected);
+    }
+    public static void deselectItems(TextMeshProUGUI[] inventarItems, ref GlobalData data)
+    {
+        int currentPosition = 0;
+        try
+        {
+            foreach (var slot in inventarItems)
+            {
+                var slotNumber = int.Parse(slot.name.Split("Item")[1]);
+                currentPosition = slotNumber;
+                var itemExists = data.player.Inventar.Count > slotNumber - 1;
+                if (itemExists && data.player.Inventar[slotNumber - 1].selected)
+                {
+                    data.player.Inventar[slotNumber - 1].selected = false;
+                }
+            };
+        }
+        catch (Exception e)
+        {
+            Debug.LogError(e);
+            Debug.Log(currentPosition.ToString());
+        }
+    }
+    public void startBattle()
+    {
+        foreach (var enemy in data.currentEnemies)
+        {
+            enemy.HpText = enemy.gamiobj.GetComponentInChildren<TextMeshProUGUI>();
+            enemy.HpLeiste = enemy.gamiobj.GetComponentInChildren<Slider>();
+        }
     }
 }

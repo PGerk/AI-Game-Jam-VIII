@@ -47,8 +47,8 @@ public static class NpcTypes
             spriteNumber = 0,
             text1 = "Wir, vom Kloster Farsus lernen Frieden durch die Abgabe unseres Eigentums. Wünschst auch du, deinem Frieden einem Stück näher zu kommen, so gib ein Opfer dar.",
             text2 = "Ich sehe, Sie sind auf dem Weg zu etwas Besseren, als das sie vorher mal waren. Umarmen Sie Ihr neues Ich, das sich formt und erleben Sie mehr Sorglosigkeit als zuvor. Friede sei mit Ihnen.",
-            blessing = new Item("foxBless", 0, 1, 0, false),
-            blessingText = "Du heilst dich ab jetzt mit jedem Angriff.",
+            blessing = new Item("boiBless", 1, 0, 0, false),
+            blessingText = "Deine Stärke hat sich permanent um 1 erhöht.",
             blessingGiven = false,
             itemStolen = false,
         }

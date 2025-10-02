@@ -3,12 +3,6 @@ using UnityEngine.SceneManagement;
 
 public class levelLoader : MonoBehaviour
 {
-    private GlobalData data;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        GlobalLoader.Instantiate(ref data);
-    }
     public void OnTriggerEnter()
     {
         SceneManager.LoadScene(2);
